@@ -1,0 +1,17 @@
+{
+  "name": "telegram-bot-mak",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev --ip 0.0.0.0 --port 3000",
+    "deploy": "wrangler deploy",
+    "db:init": "wrangler d1 execute telegram_bot_db --remote --file=./schema.sql",
+    "db:init:local": "wrangler d1 execute telegram_bot_db --local --file=./schema.sql",
+    "check": "node --check src/index.js src/db.js src/tgApi.js src/engine.js src/verifyPage.js src/masterBot.js src/childBot.js src/childAdmin.js"
+  },
+  "devDependencies": {
+    "wrangler": "^3.99.0"
+  }
+}
